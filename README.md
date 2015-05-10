@@ -1,3 +1,5 @@
+**Important:** The currencylayer project is now in a closed-beta phase and will launch towards the end of May 2015. Stay up to date by following **@apilayernet** on Twitter.
+
 # currencylayer JSON API
 
 **[Currencylayer](https://currencylayer.com)** provides an easy-to-integrate REST API with real-time and historical exchange rates for 170 world currencies, by default relative to USD, delivered in lightweight and highly portable JSON format and compatible with any application.
