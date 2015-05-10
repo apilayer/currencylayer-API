@@ -1,3 +1,5 @@
+![currencylayer](https://cloud.githubusercontent.com/assets/12207343/7554063/3f65f042-f718-11e4-870d-a9400cca9288.png)
+
 # currencylayer JSON API
 
 **[Currencylayer](https://currencylayer.com)** provides an easy-to-integrate REST API with real-time and historical exchange rates for 170 world currencies, by default relative to USD, delivered in lightweight and highly portable JSON format and compatible with any application.
