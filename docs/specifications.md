@@ -36,7 +36,7 @@ Each currency is represented by its international ISO 4217 Currency Code (**3-le
               
 ```
 
-A [full list of supported currencies](https://currencylayer.com/currencies) can be accessed both in JSON Format (Access Key required) and on the [currencylayer.com/currencies](https://currencylayer.com/currencies).
+A [full list of supported currencies](https://currencylayer.com/currencies) can be accessed both in JSON Format (Access Key required) and on the [official currencylayer website](https://currencylayer.com/currencies).
 
 ```json
 {
