@@ -1,5 +1,7 @@
 # API Features
 
+See the API's [Full Documentation](https://currencylayer.com/documentation).
+
 ## Historical Rates (available to all users)
 
 The currencylayer API provides accurate *EOD (End of Day)* Exchange Rate data for every day since 1999.
