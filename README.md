@@ -16,7 +16,8 @@ The online Forex API market is divided into two sections: Inexpensive, but unrel
 
 ## Features & Integration
 
-All real-time and historical exchange rates are available at **[https://currencylayer.com](https://currencylayer.com)**, along with 256-bit HTTPS encryption, `JSONP Callbacks`, HTTP `Access-Control` headers, `HTTP ETags`, and much more.
+All real-time and historical exchange rates are available at **[https://currencylayer.com](https://currencylayer.com)**, along with 256-bit HTTPS encryption, `JSONP Callbacks`,
+`HTTP Access-Control` headers, `HTTP ETags`, and much more.
 
 Long story short - the main API Functionalities are:
 
