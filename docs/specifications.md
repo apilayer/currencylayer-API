@@ -194,10 +194,44 @@ http://apilayer.net/api/live
 
 Please be aware that enabling `prettyprint` increases the API Response's file size, which might have a negative on your application's performance.
 
-| Left-Aligned  | Center Aligned  | Right Aligned |
+## API Error Types
+
+An error-type system has been developed in order to - if something goes wrong - help you debug your application in the shortest time possible. The currencylayer API will return a 3-digit error-type, an internal error-message, and a plain text error-description with suggestions for the user.
+
+Find below a very common error - triggered when the user supplies an invalid API Access Key:
+
+```json
+{
+  "error": true,
+  "type": 101,
+  "message": "invalid_access_key",
+  "description": "You have not supplied a valid API Access Key. [Technical Support: support@apilayer.net]"  
+}
+```
+
+The following list should help you find the most commonly returned API Errors:
+
+| Type | Message  | Description |
 | :------------ |:---------------:| -----:|
-| col 3 is      | some wordy text | $1600 |
-| col 2 is      | centered        |   $12 |
-| zebra stripes | are neat        |    $1 |
+| 404 | "404_not_found" | User requested a resource which does not exist. |
+| 101 | "missing_access_key" | User did not supply an Access Key. |
+| 101 | "invalid_access_key" | User entered an invalid Access Key. |
+| 103 | "invalid_api_function" | User requested a non-existend API Function. |
+| 104 | "usage_limit_reached" | User has reached or exceeded his Subscription Plan's monthly API Request Allowance. |
+| 105 | "function_access_restricted" | The user's current Subscription Plan does not support the requested API Function. |
+| 106 | "no_rates_available" | The user's query did not return any results. |
+
+[See all Error Types](https://currencylayer.com/documentation#error_types)
+
+## HTTP ETags
+
+In order to reduce your request bandwitdth, the currencylayer API has built in support for `HTTP ETags`. These may be very useful to optimize the performance of your application.
+
+**Definition:**
+An Etag ("Entity Tag") is an HTTP response header used to determine whether the content stored in the browser cache still matches the content or entity on the server. As long as the content at that URL is not modified in any way, the Etag remains identical. If that content ever changes, a new and different ETag is assigned.
+
+In our case, `ETags` allow you to check whether or not Exchange Rates have changed since your last API Request. If the rates have not been modified, your response size will be considerably smaller in file size than if they have. Practically, ETags provide a mechanism to cache exchange rate data as long as it is not updated.
+
+[See a quick How-to guide for working with ETags](https://currencylayer.com/documentation#error_types)
 
 
