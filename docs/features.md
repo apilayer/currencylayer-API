@@ -93,7 +93,7 @@ Using this query the API will return the standard result set, but relative to th
     "AOA": 165.601846,
     "ARS": 13.514458,
     "AUD": 1.941526,
-    [...]
+    "[...]"
     }
 }      
 ```
@@ -227,7 +227,7 @@ Along with `"timeframe": true`, the `start_date`, and the `end_date`, the API Re
       "GBP": 0.668827,
       "EUR": 0.736145
     },
-    [...]
+    "[...]"
   }
 }    
 ```
