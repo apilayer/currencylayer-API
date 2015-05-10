@@ -315,4 +315,4 @@ If the `trend` property is zero or not showing up at all (along with its entire 
 
 Please be aware that Exchange Rate Data for certain currencies may not be available for each requested day (e.g. Bitcoin was introduced in 2009).
 
-
+[Sign up](https://currencylayer.com/product) for your personal API Access Key »
