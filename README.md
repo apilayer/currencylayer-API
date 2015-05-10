@@ -8,7 +8,7 @@ Stay up to date by following [@apilayernet](https://twitter.com/apilayernet) on 
 
 Exchange rate data is collected from several major forex data vendors in real-time, bid/ask prices are blended algorithmically, validated, and delivered hourly, every 10 minutes, or even within the 60-second market window.
 
-Providing the most representative forex market value available ("midpoint" value) for every API request, **[the currencylayer API](https://currencylayer.com)** powers currency converters, mobile apps and back-office systems all around the world.
+Providing the most representative forex market value available ("midpoint" value) for every API request, [the currencylayer API](https://currencylayer.com) powers currency converters, mobile apps and back-office systems all around the world.
 
 ## Unique Approach
 
