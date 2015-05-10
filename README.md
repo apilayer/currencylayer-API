@@ -1,10 +1,10 @@
 **Important:** The currencylayer API project is now in a **closed-beta** phase and will publicly launch towards the end of May 2015. 
 
-Stay up to date by following [**@apilayernet**](https://twitter.com/apilayernet) on Twitter.
+Stay up to date by following [@apilayernet](https://twitter.com/apilayernet) on Twitter.
 
 # currencylayer JSON API
 
-**[Currencylayer](https://currencylayer.com)** provides an easy-to-integrate REST API with real-time and historical exchange rates for 170 world currencies, by default relative to USD, delivered in lightweight and highly portable JSON format and compatible with any application.
+[Currencylayer](https://currencylayer.com) provides an easy-to-integrate REST API with real-time and historical exchange rates for 170 world currencies, by default relative to USD, delivered in lightweight and highly portable JSON format and compatible with any application.
 
 Exchange rate data is collected from several major forex data vendors in real-time, bid/ask prices are blended algorithmically, validated, and delivered hourly, every 10 minutes, or even within the 60-second market window.
 
@@ -16,11 +16,11 @@ The online Forex API market is divided into two sections: Inexpensive, but unrel
 
 **Currencylayer** aims to combine the strengths of both into one **superior product** - delivering accurate, reliable and consistent currency exchange rates through a closely monitored API and making it accessible to small-scale businesses and startups - and conveniently low-priced for larger companies.
 
-**[Sign up for for free](https://currencylayer.com/product)** to get instant API Access.
+[Sign up for for free](https://currencylayer.com/product) to get instant API Access.
 
 ## Features & Integration
 
-All real-time and historical exchange rates are available at **[https://currencylayer.com](https://currencylayer.com)**, along with 256-bit HTTPS encryption, `JSONP Callbacks`,
+All real-time and historical exchange rates are available at [https://currencylayer.com](https://currencylayer.com), along with 256-bit HTTPS encryption, `JSONP Callbacks`,
 `HTTP Access-Control` headers, `HTTP ETags`, and much more.
 
 Long story short - the main API Functionalities are:
@@ -46,17 +46,17 @@ Request the development trend (in decimal) for one or more currencies between tw
 * **Optional Parameters**:
 Request only specific currencies in order to reduce server load, query the API for a different Base Currency, and pretty print your JSON response.
 
-**[Sign up for the Free Plan](https://currencylayer.com/product)** to get your API Access Key.
+[Sign up for the Free Plan](https://currencylayer.com/product) to get your API Access Key.
 
 ## In-depth Documentation
 
-Find a shortened version of the API's Documentation in this Repository's [**docs folder**](https://github.com/apilayer/currencylayer-API/tree/master/docs).
+Find a shortened version of the API's Documentation in this Repository's [docs folder](https://github.com/apilayer/currencylayer-API/tree/master/docs).
 
-Interactive example queries, a variety of code examples (including PHP/CURL, jQuery.ajax and Java), integration guides, useful downloads and much more is available at **[currencylayer.com/documentation](https://currencylayer.com/documentation)**.
+Interactive example queries, a variety of code examples (including PHP/CURL, jQuery.ajax and Java), integration guides, useful downloads and much more is available at [currencylayer.com/documentation](https://currencylayer.com/documentation).
 
 ## Customer Support
-Need any assistance? **[Get in touch with Customer Support](mailto:support@apilayer.net?subject=[currencylayer])**.
+Need any assistance? [Get in touch with Customer Support](mailto:support@apilayer.net?subject=[currencylayer]).
 
 ## Legal
 
-All usage of the currencylayer website, API, and services is subject to the **[currencylayer Terms & Conditions](https://currencylayer.com/terms)** and all annexed legal documents and agreements.
+All usage of the currencylayer website, API, and services is subject to the [currencylayer Terms & Conditions](https://currencylayer.com/terms) and all annexed legal documents and agreements.
