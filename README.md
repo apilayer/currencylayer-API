@@ -1,4 +1,4 @@
-**Important:** The currencylayer project is now in a **closed-beta** phase and will publicly launch towards the end of May 2015. 
+**Important:** The currencylayer API project is now in a **closed-beta** phase and will publicly launch towards the end of May 2015. 
 
 Stay up to date by following [**@apilayernet**](https://twitter.com/apilayernet) on Twitter.
 
@@ -49,6 +49,8 @@ Request only specific currencies in order to reduce server load, query the API f
 **[Sign up for the Free Plan](https://currencylayer.com/product)** to get your API Access Key.
 
 ## In-depth Documentation
+
+Find a shortened version of the API's Documentation in this Repository's [docs folder](https://github.com/apilayer/currencylayer-API/tree/master/docs).
 
 Interactive example queries, a variety of code examples (including PHP/CURL, jQuery.ajax and Java), integration guides, useful downloads and much more is available at **[currencylayer.com/documentation](https://currencylayer.com/documentation)**.
 
