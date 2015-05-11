@@ -199,7 +199,7 @@ Conversion Result : 192.761348
 
 #### Import of `components` failed
 
-If there are troubled important the `components` (contained in the **lib** directory), the paths are most likely broken. To fix this, find the `.classpath` file and add the following code just before the `</classpath>` closing tags:
+If there are errors importing the `components` (contained in the **lib** directory), the paths are most likely broken. To fix this, find the `.classpath` file and add the following code just before the `</classpath>` closing tags:
 
 ```xml
 <classpathentry kind="lib" path="lib/httpclient-4.4.1.jar"/> 
