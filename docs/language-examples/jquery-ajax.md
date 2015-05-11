@@ -11,7 +11,7 @@ Find below an example for how to access the latest exchange rate data via jQuery
 ```javascript
 // set endpoint and your access key
 endpoint = 'live'
-access_key = 'a6ef4094a2d6bba25db2d3385f7fddcd';
+access_key = 'YOUR_ACCESS_KEY';
 
 // get the most recent exchange rates via the "live" endpoint:
 $.ajax({
@@ -39,7 +39,7 @@ Converting one currency to another in jQuery.ajax is as simple as:
 ```javascript
 // set endpoint and your access key
 endpoint = 'convert';
-access_key = 'a6ef4094a2d6bba25db2d3385f7fddcd';
+access_key = 'YOUR_ACCESS_KEY';
 
 // define from currency, to currency, and amount
 from = 'EUR';
