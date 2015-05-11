@@ -190,9 +190,12 @@ Amount : 2
 Conversion Result : 192.761348
 ```
 
+
+
+
 ### Troubleshooting
 
-#### Import of `lib` files failed
+#### Import of `components` failed
 
 If there are troubled important the `components` (contained in the **lib** directory), the paths are most likely broken. To fix this, find the `.classpath` file and add the following code just before the `</classpath>` closing tags:
 
