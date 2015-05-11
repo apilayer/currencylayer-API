@@ -1,3 +1,5 @@
+[Sign up](https://currencylayer.com/product) for your personal API Access Key.
+
 # Code Examples
 
 ## Java 
