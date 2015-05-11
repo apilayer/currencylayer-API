@@ -114,7 +114,7 @@ Live Currency Exchange Rates
 1 USD in GBP : 0.66046 (as of 2015-05-02 21:26:15 PM)
 ```
 
-### Accessing Real-time Exchange Rates:
+### Performing a Currency Conversion:
 
 Based on what we have seen in the previous example, converting one currency to another in Java is as simple as:
 
@@ -135,27 +135,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class ConvertResponseDemo{
-	public static final String ACCESS_KEY = "7a994e9e29c2f197483d64e936e077be";
+	public static final String ACCESS_KEY = "YOUR_ACCESS_KEY";
 	public static final String BASE_URL = "https://apilayer.net/api/";
 	public static final String ENDPOINT = "convert";
 
 	// this object is used for executing requests to the (REST) API
 	static CloseableHttpClient httpClient = HttpClients.createDefault();
-	
-	/**
-	 * 
-	 * Notes:<br><br>
-	 * 
-	 * A JSON response of the form {"key":"value"} is considered a simple Java JSONObject.<br>
-	 * To get a simple value from the JSONObject, use: <JSONObject identifier>.get<Type>("key");<br>
-	 * 
-	 * A JSON response of the form {"key":{"key":"value"}} is considered a complex Java JSONObject.<br>
-	 * To get a complex value like another JSONObject, use: <JSONObject identifier>.getJSONObject("key")
-	 * 
-	 * Values can also be JSONArray Objects. JSONArray objects are simple, consisting of multiple JSONObject Objects.
-	 * 
-	 * 
-	 */
 	
 	public static void sendConvertRequest(){
 
