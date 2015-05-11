@@ -50,7 +50,7 @@ Request only specific currencies in order to reduce server load, query the API f
 
 ## In-depth Documentation
 
-Find a shortened version of the API's Documentation in this Repository's [docs folder](https://github.com/apilayer/currencylayer-API/tree/master/docs).
+Find a shortened version of the API's Documentation, along with a full Java Demo Source, in this Repository's [docs folder](https://github.com/apilayer/currencylayer-API/tree/master/docs).
 
 Interactive example queries, a variety of code examples (including PHP/CURL, jQuery.ajax and Java), integration guides, useful downloads and much more is available at [currencylayer.com/documentation](https://currencylayer.com/documentation).
 
