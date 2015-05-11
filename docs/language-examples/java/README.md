@@ -178,7 +178,7 @@ public class ConvertResponseDemo{
 		httpClient.close();
 	}
 }
-``
+```
 
 The **Java Output** will look like this:
 
@@ -191,3 +191,33 @@ Conversion Result : 192.761348
 ```
 
 ### Troubleshooting
+
+#### Import of `lib` files failed
+
+If there are troubled important the `components` (contained in the **lib** directory), the paths are most likely broken. To fix this, find the `.classpath` file and add the following code just before the `</classpath>` closing tags:
+
+```xml
+<classpathentry kind="lib" path="lib/httpclient-4.4.1.jar"/> 
+<classpathentry kind="lib" path="lib/httpcore-4.4.1.jar"/> 
+<classpathentry kind="lib" path="lib/commons-logging-1.2.jar"/> 
+<classpathentry kind="lib" path="lib/json.jar"/>
+```
+
+#### SSL Error in in JavaSe-1.7 
+
+If you are using in `JavaSe-1.7`, the fact that SSL is disabled by default may cause some unexpected errors. To fix this, find your .java file's `VM Arguments` section and add the following code:
+
+```
+-Djsse.enableSNIExtension=false
+```
+
+Access `VM Arguments` section in **Eclipse**:
+
+1. Right-click on the .java file
+2. Click Run As
+3. Click Run Configurations
+4. Click Arguments 
+5. Add the above code to VM Arguments
+6. then click Run
+
+
