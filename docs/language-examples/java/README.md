@@ -13,6 +13,7 @@ Find below an example for how to access and display the latest exchange rate dat
 ```java
 package org.json.poc;
 
+// necessary components are imported
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -32,6 +33,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class LiveResponseDemo{
+        
+        // essential URL structure is built using constants 
 	public static final String ACCESS_KEY = "YOUR_ACCESS_KEY";
 	public static final String BASE_URL = "https://apilayer.net/api/";
 	public static final String ENDPOINT = "live";
@@ -54,6 +57,7 @@ public class LiveResponseDemo{
 	 * 
 	 */
 	
+	// sendLiveRequest() function is created to request and retrieve the data
 	public static void sendLiveRequest(){
 		
 		// The following line initializes the HttpGet Object with the URL in order to send a request
@@ -68,7 +72,7 @@ public class LiveResponseDemo{
 			
 			System.out.println("Live Currency Exchange Rates");
 			
-			// access the parsed JSON objects
+			// Parsed JSON Objects are accessed according to the JSON resonse's hierarchy, output strings are built
 			Date timeStampDate = new Date((long)(exchangeRates.getLong("timestamp")*1000)); 
 			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss a");
 			String formattedDate = dateFormat.format(timeStampDate);
@@ -90,6 +94,7 @@ public class LiveResponseDemo{
 		}
 	}
 
+        // sendLiveRequest() function is executed
 	public static void main(String[] args) throws IOException{
 		sendLiveRequest();
 		httpClient.close();
@@ -97,15 +102,6 @@ public class LiveResponseDemo{
 	}
 }
 ```
-
-* start - line 32: main `components` are imported.
-* line 35 - line 37: essential URL structure is built using constants 
-
-Please make sure to provide a valid API Access Key on line 35. 
-
-* line 57 - line 90: `sendLiveRequest()` function is created to request and retrieve the data.
-* line 72 - line 75: Parsed JSON Objects are accessed according to the JSON resonse's hierarchy, output strings are built
-* from line 93: sendLiveRequest() function is executed
 
 The **Java Output** will look like this:
 
@@ -121,6 +117,7 @@ Based on what we have seen in the previous example, converting one currency to a
 ```java
 package org.json.poc;
 
+// necessary components are imported
 import java.io.IOException;
 
 import org.apache.http.HttpEntity;
