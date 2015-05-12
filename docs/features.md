@@ -6,7 +6,7 @@ See the API's [Full Documentation](https://currencylayer.com/documentation).
 
 The currencylayer API provides accurate *EOD (End of Day)* Exchange Rate data for every day since 1999.
 
-Historical Rates may be accessed by simply appending the `date` parameter with a valid Date (Format: `YYYY-MM-DD`) to the API's `historical` Endpoint.
+Historical Rates may be accessed by simply appending the `date` parameter with a valid date (Format: `YYYY-MM-DD`) to the API's `historical` Endpoint.
 
 **Syntax:**
 
@@ -24,7 +24,7 @@ http://apilayer.net/api/historical
     & date = 2005-02-01     
 ```
 
-Please be aware that Exchange Rate Data for certain currencies may not be available for each requested day (e.g. Bitcoin was introduced in 2009).
+Please be aware that Exchange Rate data for certain currencies may not be available for each requested day (e.g. Bitcoin was only introduced in 2009).
 
 ## Requesting Specific Currencies (available to all users)
 
@@ -40,7 +40,7 @@ http://apilayer.net/api/live
     & currencies = AUD,CHF,EUR,GBP,PLN     
 ```
 
-Using this query the API will return a standard response with only your specified currencies in the `rates` object:
+Using this query, the API will return a standard response with only your specified currencies in the `rates` object:
 
 ```json
 {
@@ -77,7 +77,7 @@ http://apilayer.net/api/live
 
 **Example Response:**
 
-Using this query the API will return the standard result set, but relative to the base currency you specified (in our example: GBP):
+Using this query, the API will return the standard result set, but relative to the base currency you specified (in our example: GBP):
 
 ```json
 {
@@ -146,7 +146,7 @@ At the end of the response, there will be a `result` property containing your su
 
 ### Currency Conversion using Historical Rates
 
-The currencylayer API also supports Single-Currency Conversions using Historical Exchange Rates. Simply append an additional `date` property with a valid Date (Format: `YYYY-MM-DD`) to your query.
+The currencylayer API also supports Single-Currency Conversions using Historical Exchange Rates. Simply append an additional `date` property with a valid date (Format: `YYYY-MM-DD`) to your query.
 
 **Example query:**
 
@@ -207,7 +207,7 @@ This feature can also be used in combination with **Base Currency Switching** an
 
 **Example response:**
 
-Along with `"timeframe": true`, the `start_date`, and the `end_date`, the API Response's `rates` object will contain the specified Exchange Rates divided in "subdirectories" for each of the days within the requested time-frame.
+Along with `"timeframe": true`, the `start_date`, and the `end_date`, the API Response's `rates` object will contain the specified Exchange Rates divided into "subdirectories" for each of the days within the requested time-frame.
 
 ```json
 {
@@ -238,16 +238,18 @@ Along with `"timeframe": true`, the `start_date`, and the `end_date`, the API Re
 
 To enhance usability, automatic date-correction mechanisms have been implemented. If you request an invalid `start_date` or `end_date`, the API will automatically set it backwards to nearest available date - e.g. `2015-02-30` will be automatically corrected to `2015-02-28`. This enables you to sequentially request every month from the 1st to the 31st, disregarding the individual length of each month.
 
-## Currency-Trend Queries (only Enterprise users)
+## Currency-Change Queries (only Enterprise users)
 
-Using the API's `trend` Endpoint, you may request the Development Trend (in decimal) of one or more currencies, relative to a **Base Currency**, within a specified time-frame.
+Using the API's `change` Endpoint, you may request the change (both margin and percentage) of one or more currencies, relative to a Base Currency, within a specific time-frame (optional).
 
-Just like for Time-Frame Queries, you need to specify your preferred time-frame, consisting of a `start_date` and an `end_date`, both of the format `YYYY-MM-DD`.
+Unlike with Time-Frame Queries, performing a **Currency-Change Query** does not require you to specify a time-frame. If you do not provide a time-frame, the API will automatically return the change values ranging from yesterday's *EOD (End Of Day)* data, to the latest available exchange rates of today.
+
+However, if you decide to specify a `start_date` and and `end_date` (both of the format `YYYY-MM-DD`), the API will return change values for your preferred time-frame.
 
 **Example query:**
 
 ```
-http://apilayer.net/api/convert
+http://apilayer.net/api/change
     ? access_key = YOUR_ACCESS_KEY
     & start_date = 2005-01-01
     & end_date = 2010-01-01
@@ -258,11 +260,11 @@ This feature can also be used in combination with **Base Currency Switching** an
 
 **Example response:**
 
-To indicate that you are performing a `trend` query, the API will return `"trend": true`. Right below, also your specified `start_date´ and `end_date` will be part of the API Response.
+To indicate that you are performing a `change` query, the API will return `"change": true`. Right below, your specified `start_date` and `end_date` will be part of the API Response as well.
 
 Just like when performing a Time-Frame Query, the API Response's `rates` object will be divided in subdirectories (one for each requested currency).
 
-The three properties contained in these subdirectories will be explained in **Code View** below:
+The four properties contained in these subdirectories are explained below in **Code View**:
 
 ```
 start_rate     the respective currency's exchange rate at the  
@@ -271,9 +273,11 @@ start_rate     the respective currency's exchange rate at the
 end_rate       the respective currency's exchange rate at the  
                end of the specified period
                
-trend          the currency's development trend in decimal, which,   
-               multiplied by 100, gives its percentage change for 
-               the specified time-frame
+change         the margin between the currency's start_rate
+               end_rate
+               
+change_pct     the currency's percentage change within the 
+               specified time-frame  
 ```
 
 This is how the complete API Response will look like:
@@ -283,7 +287,7 @@ This is how the complete API Response will look like:
   "success": true,
   "terms": "[...]",
   "privacy": "[...]",
-  "trend": true,
+  "change": true,
   "start_date": "2005-01-01",
   "end_date": "2010-01-01",
   "base": "USD",
@@ -291,28 +295,31 @@ This is how the complete API Response will look like:
     "AUD": {
       "start_rate": 1.281236,
       "end_rate": 1.108609,
-      "trend": 0.1347
+      "change": -0.1726,
+      "change_pct": -13.4735
     },
     "EUR": {
       "start_rate": 0.73618,
       "end_rate": 0.697253,
-      "trend": 0.0529
+      "change": -0.0389,
+      "change_pct": -5.2877
     },
     "MXN":{
-      "start_rate": 9.474097,
+      "start_rate": 11.149362,
       "end_rate": 13.108757,
-      "trend": -0.1757
+      "change": 1.9594,
+      "change_pct": 17.5741
     }
   }
 } 
 ```
 
-If the decimal value contained in the `trend` property is positive, the value of the respective currency increased over the course of the specified time-frame. (e.g. `"trend": 0.02511` would be a `+2.5% increase`). If the `trend` is negative, it decreased. (e.g. `"trend": -0.1393` would be a `-13.9% decrease`)
+If the decimal values contained both in the `change` and in the `change_pct` property are positive, the value of the respective currency increased over the course of the specified time-frame. (e.g. `"change_pct": 17.5741` would be a `+17.57% increase`). If the values are negative, it decreased. (e.g. `"change_pct": -5.2877` would be a `-5.29% decrease`)
 
 ### "trend": 0
 
-If the `trend` property is zero or not showing up at all (along with its entire subdirectory), it means that an Exchange Rate for the respective currency on at least one of the specified dates is "unavailable".
+If the `change` and `change_pct` properties equal zero, either the specified currency's exchange rate value has not changed over the course of the entire time-frame, or an exchange rate value for the respective currency on at least one of the specified dates is "unavailable".
 
-Please be aware that Exchange Rate Data for certain currencies may not be available for each requested day (e.g. Bitcoin was introduced in 2009).
+Please be aware that Exchange Rate Data for certain currencies may not be available for each requested day (e.g. Bitcoin was only introduced in 2009).
 
 [Sign up](https://currencylayer.com/product) for your personal API Access Key »
