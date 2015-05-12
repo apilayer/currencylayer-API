@@ -10,7 +10,7 @@ This Documentation intends to help you get the most out of the currencylayer API
 
 ## Preview API Response
 
-Each currency is represented by its international ISO 4217 Currency Code (**3-letters**). This API provides Exchange Rates for 170 world currencies, updated in real-time and delivered in lightweight and highly portable JSON Format. Find below a Preview API Response.
+Each currency is represented by its international ISO 4217 Currency Code (**3-letters**). This API provides Exchange Rates for 169 world currencies, updated in real-time and delivered in lightweight and highly portable JSON Format. Find below a Preview API Response.
 
 ```json
 {
@@ -54,7 +54,7 @@ A [full list of supported currencies](https://currencylayer.com/currencies) can 
 
 ## Access Keys
 
-After signing up, every user is assigned a personal API Access Key, which can be used to access any of the API's Endpoints. (see below)
+After signing up, every user is assigned a personal API Access Key - a unique "password" that can be used to access the API's Endpoints. (see below)
 
 To call the API, simply append your `access_key` as a parameter to the URL, like so:
 
@@ -62,7 +62,7 @@ To call the API, simply append your `access_key` as a parameter to the URL, like
 https://apilayer.net/api/live?access_key=YOUR_ACCESS_KEY  
 ```
 
-You can [sign up for a free Access Key here](https://currencylayer.com/product). Our Free Plan offers up to 1.000 monthly API Requests and hourly updated Exchange Rates. Paid plans provide larger request allowances and more up-to-date exchange rates (reaching update frequencies of 60 seconds!)
+You can [sign up for a free Access Key here](https://currencylayer.com/product). Our Free Plan offers up to 1.000 monthly API Requests and hourly updated Exchange Rates. Paid plans provide larger request allowances and more up-to-date exchange rates (reaching update frequencies of 60 seconds)
 
 ## API Endpoints (URLs)
 
@@ -100,7 +100,7 @@ http://apilayer.net/api/live?callback=SOME_CALLBACK
 
 ## HTTPS - Secure Datastreams
 
-Paid Customers may establish a **secure connection** (SSL, 256-bit HTTPS Encryption) to the currencylayer API and all data provided by and accessible through it, ensuring an encrypted communication between the server and the client.
+Paid Customers may establish a **secure connection** (SSL, 256-bit HTTPS Encryption) to the currencylayer API and all data provided by and accessible through it, ensuring an encrypted communication between server and client.
 
 To connect securely, simply append an `s` to the HTTP Protocol:
 
@@ -110,11 +110,11 @@ https://apilayer.net/api/live?access_key=YOUR_ACCESS_KEY
 
 ## API Properties
 
-currencylayer API results are delivered in portable **JSON format**. Find below descriptions for this API's JSON Object Properties:
+currencylayer API results are delivered in lightweight and portable **JSON format**. Find below descriptions for the API's JSON Object Properties:
 
 ### "success", "error"
 
-The **"success"** property indicates that your query has been successful. If your query failed, the API will return an `error` (see API Error Types below).
+The **"success"** property indicates that your query has been successful. If your query fails, the API will return an `error` (see **API Error Types** below).
 
 ```
 // query successful
@@ -134,7 +134,7 @@ Linking the [Terms & Conditions](https://currencylayer.com/terms) to every API R
 
 ### "privacy"
 
-This property was included to prompt the customer to take a look at this service's [Privacy Policy](https://currencylayer.com/privacy), which defines the principles of how and for which purposes data provided by users will or will not be used.
+This property was included to prompt the customer to take a look at this service's [Privacy Policy](https://currencylayer.com/privacy), which defines the principles of how and for which purposes data provided by customers will or will not be used.
 
 ```
 "privacy": "..."
@@ -142,7 +142,7 @@ This property was included to prompt the customer to take a look at this service
 
 ### "timestamp"
 
-The `timestamp` property represents the exact time (as a **UNIX** timestamp) the Exchange Rates in the respective result set were collected, making it simple to determine how up-to-date your results are.
+The `timestamp` property represents the exact date and time (as a **UNIX** timestamp) the Exchange Rates in the respective API Response were collected, making it simple to determine how up-to-date your results are.
 
 **Important**: Please keep in mind that when working with JavaScript, the timestamp value has to be multiplied by 1,000, as JavaScript uses milliseconds instead of seconds.
 
@@ -152,13 +152,13 @@ The `timestamp` property represents the exact time (as a **UNIX** timestamp) the
 
 ### "base"
 
-This is the currency (by default: 'USD') to which all Exchange Rates are relative. Knowing the Base Currency makes it possible to calculate the rate between any other two currencies.
+This is the currency (by default: 'USD') to which all Exchange Rates in your respective API Response are relative.
 
 The base currency can also be found in the JSON result set's `rates` object (e.g. `"USD" : 1`).
 
 **Changing the Base Currency:** In order to request Exchange Rates relative to a different Base Currency, simply specify it in your query using the base property. (e.g. `&base=PLN`).
 
-Please be aware that only currencies which are part of the respective result set can be set as Base Currency. When requesting Historical Rates, some currencies may not be available for each day
+Please be aware that only currencies which are part of the respective result set can be set as Base Currency. When requesting Historical Rates, some currencies may not be available for each day.
 
 ```
 "base": "USD"
@@ -179,8 +179,7 @@ Each of these rates is relative to the selected `base` currency.
     "[...]"
 ```
 
-**Requesting specific currencies**: In order to optimize your API result's file size, you may request only specific currencies to be computed, using the currencies parameter 
-(e.g. `&currencies=GBP,EUR,CHF`).
+**Requesting specific currencies**: In order to optimize your API result's file size, you may request a limited set of currencies to be computed, using the currencies parameter (e.g. `&currencies=GBP,EUR,CHF`).
 
 ## JSON Prettyprint
 
@@ -198,7 +197,7 @@ Please be aware that enabling `prettyprint` increases the API Response's file si
 
 ## API Error Types
 
-An error-type system has been developed in order to - if something goes wrong - help you debug your application in the shortest time possible. The currencylayer API will return a 3-digit error-type, an internal error-message, and a plain text error-description with suggestions for the user.
+All specified API Error Types have been documented in order to - if something goes wrong - help you debug your application in the shortest time possible. The currencylayer API will return a 3-digit error-type, an internal error-message, and a plain text error-description with suggestions for the user.
 
 Find below a very common error - triggered when the user supplies an invalid API Access Key:
 
@@ -227,12 +226,12 @@ The following list should help you find the most commonly returned API Errors:
 
 ## HTTP ETags
 
-In order to reduce your request bandwitdth, the currencylayer API has built in support for `HTTP ETags`. These may be very useful to optimize the performance of your application.
+In order to reduce your request bandwidth, the currencylayer API has built in support for `HTTP ETags`. These may be very useful optimizing the performance of your application.
 
 **Definition:**
 An Etag ("Entity Tag") is an HTTP response header used to determine whether the content stored in the browser cache still matches the content or entity on the server. As long as the content at that URL is not modified in any way, the Etag remains identical. If that content ever changes, a new and different ETag is assigned.
 
-In our case, `ETags` allow you to check whether or not Exchange Rates have changed since your last API Request. If the rates have not been modified, your response size will be considerably smaller in file size than if they have. Practically, ETags provide a mechanism to cache exchange rate data as long as it is not updated.
+In our case, `ETags` allow you to check whether or not Exchange Rates have changed since your last API Request. If the rates have not been modified, your API Response will be considerably smaller in size than if they have. Practically, ETags provide a mechanism to cache exchange rate data as long as it is not updated.
 
 [See a quick How-to guide for working with ETags](https://currencylayer.com/documentation#error_types)
 
