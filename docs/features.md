@@ -316,7 +316,7 @@ This is how the complete API Response will look like:
 
 If the decimal values contained both in the `change` and in the `change_pct` property are positive, the value of the respective currency increased over the course of the specified time-frame. (e.g. `"change_pct": 17.5741` would be a `+17.57% increase`). If the values are negative, it decreased. (e.g. `"change_pct": -5.2877` would be a `-5.29% decrease`)
 
-### "trend": 0
+### "change": 0
 
 If the `change` and `change_pct` properties equal zero, either the specified currency's exchange rate value has not changed over the course of the entire time-frame, or an exchange rate value for the respective currency on at least one of the specified dates is "unavailable".
 
