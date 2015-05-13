@@ -10,7 +10,7 @@ This Documentation intends to help you get the most out of the currencylayer API
 
 ## Preview API Response
 
-Each currency is represented by its international ISO 4217 Currency Code (**3-letters**). This API provides Exchange Rates for 169 world currencies, updated in real-time and delivered in lightweight and highly portable JSON Format. Find below a Preview API Response.
+Each currency is represented by its international ISO 4217 Currency Code (**3-letters**). This API provides Exchange Rates for 168 world currencies, updated in real-time and delivered in lightweight and highly portable JSON Format. Find below a Preview API Response.
 
 ```json
 {
