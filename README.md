@@ -4,7 +4,7 @@ Stay up to date by following [@apilayernet](https://twitter.com/apilayernet) on 
 
 # currencylayer JSON API
 
-[Currencylayer](https://currencylayer.com) provides an easy-to-integrate REST API with real-time and historical exchange rates for 169 world currencies, by default relative to USD, delivered in lightweight and highly portable JSON format and compatible with any application.
+[Currencylayer](https://currencylayer.com) provides an easy-to-integrate REST API with real-time and historical exchange rates for 168 world currencies, by default relative to USD, delivered in lightweight and highly portable JSON format and compatible with any application.
 
 Exchange rate data is collected from several major forex data vendors in real-time, bid/ask prices are blended algorithmically, validated, and delivered hourly, every 10 minutes, or even within the 60-second market window.
 
@@ -26,7 +26,7 @@ All real-time and historical exchange rates are available at [https://currencyla
 Long story short - the main API Functionalities are:
 
 * **Real-time Forex data**:
-Exchange rates for 169 world currencies and precious metals, with data updates ranging from every 60 minutes down to stunning 60 seconds 
+Exchange rates for 168 world currencies and precious metals, with data updates ranging from every 60 minutes down to stunning 60 seconds 
 
 * **Historical Rates**:
 Query the API for Historical exchange rates going back all the way to 1999
