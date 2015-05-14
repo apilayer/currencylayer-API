@@ -207,7 +207,7 @@ This feature can also be used in combination with **Base Currency Switching** an
 
 **Example response:**
 
-Along with `"timeframe": true`, the `start_date`, and the `end_date`, the API Response's `rates` object will contain the specified Exchange Rates divided into "subdirectories" for each of the days within the requested time-frame.
+Along with `"timeframe": true`, the `start_date`, and the `end_date`, the API Response's `rates` object will contain the specified Exchange Rates divided into "sub-objects" for each of the days within the requested time-frame.
 
 ```json
 {
@@ -262,9 +262,9 @@ This feature can also be used in combination with **Base Currency Switching** an
 
 To indicate that you are performing a `change` query, the API will return `"change": true`. Right below, your specified `start_date` and `end_date` will be part of the API Response as well.
 
-Just like when performing a Time-Frame Query, the API Response's `rates` object will be divided in subdirectories (one for each requested currency).
+Just like when performing a Time-Frame Query, the API Response's `rates` object will be divided in sub-objects (one for each requested currency).
 
-The four properties contained in these subdirectories are explained below in **Code View**:
+The four properties contained in these sub-objects are explained below in **Code View**:
 
 ```
 start_rate     the respective currency's exchange rate at the  
