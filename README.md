@@ -1,5 +1,3 @@
-**Important:** The currencylayer API project is now in a **closed-beta** phase and will publicly launch towards the end of May 2015. 
-
 Stay up to date by following [@apilayernet](https://twitter.com/apilayernet) on Twitter.
 
 # currencylayer JSON API
