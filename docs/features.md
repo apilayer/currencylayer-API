@@ -320,6 +320,6 @@ If the decimal values contained both in the `change` and in the `change_pct` pro
 
 If the `change` and `change_pct` properties equal zero, either the specified currency's exchange rate value has not changed over the course of the entire time-frame, or an exchange rate value for the respective currency on at least one of the specified dates is "unavailable".
 
-Please be aware that Exchange Rate Data for certain currencies may not be available for each requested day (e.g. Bitcoin was only introduced in 2009).
+**Please note:** Since foreign exchange (forex) markets are only open from Sunday 5 PM ET to Friday 5 PM ET, change parameters may converge to zero during weekends.
 
 [Sign up](https://currencylayer.com/product) for your personal API Access Key »
