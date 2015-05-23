@@ -1,3 +1,8 @@
+Warning: This Repository is currently OUT OF DATE - please visit https://currencylayer.com for any API documentation.
+
+
+---
+
 Stay up to date by following [@apilayernet](https://twitter.com/apilayernet) on Twitter.
 
 # currencylayer JSON API
