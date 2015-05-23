@@ -19,11 +19,11 @@ $.ajax({
     dataType: 'jsonp',
     success: function(json) {
 
-        // exchange rata data is stored in json.rates
-        alert(json.rates.USD);
+        // exchange rata data is stored in json.quotes
+        alert(json.quotes.USDGBP);
         
-        // base currency is stored in json.base
-        alert(json.base);
+        // base currency is stored in json.source
+        alert(json.source);
         
         // timestamp can be accessed in json.timestamp
         alert(json.timestamp);
