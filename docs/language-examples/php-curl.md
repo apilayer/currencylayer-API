@@ -23,7 +23,7 @@ curl_close($ch);
 $exchangeRates = json_decode($json, true);
 
 // Access the exchange rate values, e.g. GBP:
-echo $exchangeRates['rates']['GBP'];
+echo $exchangeRates['rates']['USDGBP'];
 ```
 
 ### Performing a Currency Conversion:
