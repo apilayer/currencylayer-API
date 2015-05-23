@@ -4,7 +4,7 @@ See the API's [Full Documentation](https://currencylayer.com/documentation).
 
 ## Historical Rates (available to all users)
 
-The currencylayer API provides accurate *EOD (End of Day)* Exchange Rate data for every day since 1999.
+The currencylayer API provides accurate *EOD (End of Day)* Exchange Rate data for each day of the past 16 years.
 
 Historical Rates may be accessed by simply appending the `date` parameter with a valid date (Format: `YYYY-MM-DD`) to the API's `historical` Endpoint.
 
@@ -26,11 +26,11 @@ http://apilayer.net/api/historical
 
 Please be aware that Exchange Rate data for certain currencies may not be available for each requested day (e.g. Bitcoin was only introduced in 2009).
 
-## Requesting Specific Currencies (available to all users)
+## Specifying Output Currencies (available to all users)
 
-For both Live and Historical Rates, you may request specific currencies by appending the `currencies` parameter followed by any available 3-letter Currency Codes (divided by commas) of your choice.
+For both Live and Historical Rates, you may request a specified selection of currencies by attaching the `currencies` parameter followed by any available 3-letter Currency Codes (divided by commas) of your choice.
 
-The `currencies` parameter is supported by each of the API's Endpoints (except for Single-Conversion, more info below), may be combined with JSONP callbacks, and has no limits in size.
+The `currencies` parameter is supported by each of the API's Endpoints (except for Currency Conversion Endpoint, more info below) and has no limits in size.
 
 **Example Query:**
 
@@ -45,27 +45,27 @@ Using this query, the API will return a standard response with only your specifi
 ```json
 {
   "success": true,
-  "terms": "[...]",
-  "privacy": "[...]",
+  "terms": "https://currencylayer.com/terms",
+  "privacy": "https://currencylayer.com/privacy",
   "timestamp": 1430068515,
-  "base": "USD",
-  "rates": {
-    "AUD": 1.278384,
-    "CHF": 0.953975,
-    "EUR": 0.919677,
-    "GBP": 0.658443,
-    "PLN": 3.713873
+  "source": "USD",
+  "quotes": {
+    "USDAUD": 1.278384,
+    "USDCHF": 0.953975,
+    "USDEUR": 0.919677,
+    "USDGBP": 0.658443,
+    "USDPLN": 3.713873
   }
 }
 ```
 
 The currencies feature may be especially useful when working with Time-Frame Queries, as it allows you to reduce the API Response's file size drastically.
 
-## Base Currency Switching (available to all paid users)
+## Source Currency Switching (available to all paid users)
 
-As a paid customer, you may request Exchange Rates relative to a different `base` currency than US Dollars, simply by appending the `base` parameter followed by the 3-letter Currency Code of your choice.
+As a paid customer, you may request Exchange Rates relative to a different `source` currency than US Dollars, simply by appending the `source` parameter followed by the 3-letter Currency Code of your choice.
 
-The `base` parameter is supported by each of the API's Endpoints (except for Single-Conversion) and may be used in combination with JSONP callbacks.
+The `source` parameter is supported by each of the API's Endpoints (except for Currency Conversion).
 
 **Example Query:**
 
@@ -82,27 +82,27 @@ Using this query, the API will return the standard result set, but relative to t
 ```json
 {
   "success": true,
-  "terms": "[...]",
-  "privacy": "[...]",
+  "terms": "https://currencylayer.com/terms",
+  "privacy": "https://currencylayer.com/privacy",
   "timestamp": 1430068515,
-  "base": "GBP",
-  "rates": {
-    "AED": 5.578448,
-    "AFN": 87.869413,
-    "ALL": 196.414724,
-    "AMD": 719.087298,
-    "ANG": 2.717836,
-    "AOA": 165.601846,
-    "ARS": 13.514458,
-    "AUD": 1.941526,
+  "source": "GBP",
+  "quotes": {
+    "GBPAED": 5.578448,
+    "GBPAFN": 87.869413,
+    "GBPALL": 196.414724,
+    "GBPAMD": 719.087298,
+    "GBPANG": 2.717836,
+    "GBPAOA": 165.601846,
+    "GBPARS": 13.514458,
+    "GBPAUD": 1.941526,
     "[...]"
     }
 }      
 ```
 
-Please note that only currencies that are part of the respective result set can be set as `base` currency.
+Please note that only currencies that are part of the respective result set can be set as `source` currency.
 
-## Single-Conversion API (available to all paid users)
+## Currency Conversion Endpoint (available to all paid users)
 
 Using the `convert` Endpoint, you may request the currencylayer API to perform a Single Currency Conversion on your behalf.
 
@@ -129,8 +129,8 @@ At the end of the response, there will be a `result` property containing your su
 ```json
 {
   "success": true,
-  "terms": "[...]",
-  "privacy": "[...]",
+  "terms": "https://currencylayer.com/terms",
+  "privacy": "https://currencylayer.com/privacy",
   "query": {
     "from": "USD",
     "to": "GBP",
@@ -166,8 +166,8 @@ Additionally to the above mentioned properties and objects, the API will return 
 ```json
 {
   "success": true,
-  "terms": "[...]",
-  "privacy": "[...]",
+  "terms": "https://currencylayer.com/terms",
+  "privacy": "https://currencylayer.com/privacy",
   "query": {
     "from": "USD",
     "to": "GBP",
@@ -212,22 +212,22 @@ Along with `"timeframe": true`, the `start_date`, and the `end_date`, the API Re
 ```json
 {
   "success": true,
-  "terms": "[...]",
-  "privacy": "[...]",
+  "terms": "https://currencylayer.com/terms",
+  "privacy": "https://currencylayer.com/privacy",
   "timeframe": true,
   "start_date": "2010-03-01",
   "end_date": "2010-04-01",
-  "base": "USD",
-  "rates": {
+  "source": "USD",
+  "quotes": {
     "2010-03-01": {
-      "USD": 1,
-      "GBP": 0.668525,
-      "EUR": 0.738541
+      "USDUSD": 1,
+      "USDGBP": 0.668525,
+      "USDEUR": 0.738541
     },
     "2010-03-02": {
-      "USD": 1,
-      "GBP": 0.668827,
-      "EUR": 0.736145
+      "USDUSD": 1,
+      "USDGBP": 0.668827,
+      "USDEUR": 0.736145
     },
     "[...]"
   }
@@ -285,26 +285,26 @@ This is how the complete API Response will look like:
 ```json
 {
   "success": true,
-  "terms": "[...]",
-  "privacy": "[...]",
+  "terms": "https://currencylayer.com/terms",
+  "privacy": "https://currencylayer.com/privacy",
   "change": true,
   "start_date": "2005-01-01",
   "end_date": "2010-01-01",
-  "base": "USD",
-  "rates": {
-    "AUD": {
+  "source": "USD",
+  "quotes": {
+    "USDAUD": {
       "start_rate": 1.281236,
       "end_rate": 1.108609,
       "change": -0.1726,
       "change_pct": -13.4735
     },
-    "EUR": {
+    "USDEUR": {
       "start_rate": 0.73618,
       "end_rate": 0.697253,
       "change": -0.0389,
       "change_pct": -5.2877
     },
-    "MXN":{
+    "USDMXN":{
       "start_rate": 11.149362,
       "end_rate": 13.108757,
       "change": 1.9594,
