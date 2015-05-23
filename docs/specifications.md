@@ -14,45 +14,31 @@ Each currency is represented by its international ISO 4217 Currency Code (**3-le
 
 ```json
 {
-    "terms": "[...]",
-    "privacy": "[...]",
+    "terms": "https://currencylayer.com/terms",
+    "privacy": "https://currencylayer.com/privacy",
     "timestamp": 1430401802,
-    "base": "USD",
-    "rates": {
-        "AED": 3.672982,
-        "AFN": 57.8936,
-        "ALL": 126.1652,
-        "AMD": 475.306,
-        "ANG": 1.78952,
-        "AOA": 109.216875,
-        "ARS": 8.901966,
-        "AUD": 1.269072,
-        "AWG": 1.792375,
-        "AZN": 1.04945,
-        "BAM": 1.757305,
+    "source": "USD",
+    "quotes": {
+        "USDAED": 3.672982,
+        "USDAFN": 57.8936,
+        "USDALL": 126.1652,
+        "USDAMD": 475.306,
+        "USDANG": 1.78952,
+        "USDAOA": 109.216875,
+        "USDARS": 8.901966,
+        "USDAUD": 1.269072,
+        "USDAWG": 1.792375,
+        "USDAZN": 1.04945,
+        "USDBAM": 1.757305,
     "[...]"
     }
 }              
               
 ```
 
-A [full list of supported currencies](https://currencylayer.com/currencies) can be accessed both in JSON Format (Access Key required) and on the [official currencylayer website](https://currencylayer.com/currencies).
+A [full list of supported currencies](https://currencylayer.com/currencies) can be accessed on the [official currencylayer website](https://currencylayer.com/currencies).
 
-```json
-{
-  "[...]"
-  "currencies": {
-    "AED": "United Arab Emirates Dirham",
-    "AFN": "Afghan Afghani",
-    "ALL": "Albanian Lek",
-    "AMD": "Armenian Dram",
-    "ANG": "Netherlands Antillean Guilder",  
-    "[...]" 
-    }
-}              
-```
-
-## Access Keys
+## API Access Key
 
 After signing up, every user is assigned a personal API Access Key - a unique "password" that can be used to access the API's Endpoints. (see below)
 
@@ -70,14 +56,11 @@ The currencylayer API offers up to 6 customizable **Endpoints**, all of which pr
 
 `https://apilayer.net/api/`
 
-Take a look at the following three API Endpoints: (If you would like to try them out, [get a Free Plan](https://currencylayer.com/product) and don't forget to append your Access Key to the URL)
+Take a look at the following two API Endpoints: (If you would like to try them out, [get a Free Plan](https://currencylayer.com/product) and don't forget to append your Access Key to the URL)
 
 ```url
 // "live" - get the most recent exchange rate data
 http://apilayer.net/api/live
-
-// "list" - get a JSON list of all supported currencies
-http://apilayer.net/api/list
 
 // "historical" - get historical rates for a specific day  
 http://apilayer.net/api/historical?date=YYYY-MM-DD     
@@ -98,7 +81,7 @@ http://apilayer.net/api/live?callback=SOME_CALLBACK
 
 **Note**: The API also supports `Access-Control (CORS)` headers.
 
-## HTTPS - Secure Datastreams
+## 256-bit HTTPS Encryption
 
 Paid Customers may establish a **secure connection** (SSL, 256-bit HTTPS Encryption) to the currencylayer API and all data provided by and accessible through it, ensuring an encrypted communication between server and client.
 
@@ -114,19 +97,19 @@ currencylayer API results are delivered in lightweight and portable **JSON forma
 
 ### "success", "error"
 
-The **"success"** property indicates that your query has been successful. If your query fails, the API will return an `error` (see **API Error Types** below).
+The **"success"** property indicates if your query has been successful or not. (see **API Error Types** below).
 
 ```
 // query successful
 "success": "true"
 
 // query failed
-"error": "true"
+"success": "false"
 ```
 
 ### "terms"
 
-Linking the [Terms & Conditions](https://currencylayer.com/terms) to every API Result intends to remind anybody using or viewing currencylayer API Data that no guarantees are made and no warranties are offered regarding accuracy, validity, or availability, and that all usage is at your own risk.
+[Terms & Conditions](https://currencylayer.com/terms): No guarantees are made and no warranties are offered regarding accuracy, validity, or availability, and all usage of this service is at your own risk.
 
 ```
 "terms": "..."
@@ -144,69 +127,69 @@ This property was included to prompt the customer to take a look at this service
 
 The `timestamp` property represents the exact date and time (as a **UNIX** timestamp) the Exchange Rates in the respective API Response were collected, making it simple to determine how up-to-date your results are.
 
-**Important**: Please keep in mind that when working with JavaScript, the timestamp value has to be multiplied by 1,000, as JavaScript uses milliseconds instead of seconds.
 
 ```
 "timestamp": 1415543433
 ```
 
-### "base"
+### "source"
 
 This is the currency (by default: 'USD') to which all Exchange Rates in your respective API Response are relative.
 
-The base currency can also be found in the JSON result set's `rates` object (e.g. `"USD" : 1`).
+The source currency can also be found in the JSON result set's `quotes` object (e.g. `"USD" : 1`).
 
-**Changing the Base Currency:** In order to request Exchange Rates relative to a different Base Currency, simply specify it in your query using the base property. (e.g. `&base=PLN`).
+**Changing the Source Currency:** In order to request Exchange Rates relative to a different Source Currency, simply specify it in your query using the source property. (e.g. `&source=PLN`).
 
-Please be aware that only currencies which are part of the respective result set can be set as Base Currency. When requesting Historical Rates, some currencies may not be available for each day.
+Please be aware that only currencies which are part of the respective result set can be set as Source Currency. When requesting Historical Rates, some currencies may not be available for each day.
 
 ```
-"base": "USD"
+"source": "USD"
 ```
 
-### "rates"
+### "quotes"
 
-The `rates` object contains the Exchange Rates for the requested currencies in your query, consisting of their ISO 4217 Currency Codes (3-letters) and their respective Conversion Rates.
+The `quotes` object contains the Exchange Rates for the requested currencies in your query, consisting of their ISO 4217 Currency Codes (3-letters) and their respective Conversion Rates.
 
 Each of these rates is relative to the selected `base` currency.
 
 ```json
-"rates": {
-    "AED": 3.672982,
-    "AFN": 57.8936,
-    "ALL": 126.1652,
-    "AMD": 475.306,
+"quotes": {
+    "USDAED": 3.672982,
+    "USDAFN": 57.8936,
+    "USDALL": 126.1652,
+    "USDAMD": 475.306,
     "[...]"
 ```
 
-**Requesting specific currencies**: In order to optimize your API result's file size, you may request a limited set of currencies to be computed, using the currencies parameter (e.g. `&currencies=GBP,EUR,CHF`).
+**Specifying output currencies**: In order to optimize your API result's file size, you may request a limited set of currencies to be computed, using the currencies parameter (e.g. `&currencies=GBP,EUR,CHF`).
 
-## JSON Prettyprint
+## JSON Formatting
 
-In order to enhance readability (i.e. for de-bugging purposes), the currencylayer API features a built-in JSON `prettyprint` function, which displays the API's Response in typically JSON-structured format.
+In order to enhance readability (i.e. for de-bugging purposes), the currencylayer API features a built-in JSON `format` function, which displays the API's Response in typically JSON-structured format.
 
-To enable this function, simply append `prettyprint=1` to any valid API Endpoint URL:
+To enable this function, simply append `format=1` to any valid API Endpoint URL:
 
 ```
 http://apilayer.net/api/live
     ? access_key = YOUR_ACCESS_KEY
-    & prettyprint = 1      
+    & format = 1      
 ```
 
-Please be aware that enabling `prettyprint` increases the API Response's file size, which might have a negative on your application's performance.
+Please be aware that enabling `format` increases the API Response's file size, which might have a negative on your application's performance.
 
 ## API Error Types
 
 All specified API Error Types have been documented in order to - if something goes wrong - help you debug your application in the shortest time possible. The currencylayer API will return a 3-digit error-type, an internal error-message, and a plain text error-description with suggestions for the user.
 
-Find below a very common error - triggered when the user supplies an invalid API Access Key:
+Find below an example error - triggered when a user's monthly API Request volume has been reached or exceeded:
 
 ```json
 {
-  "error": true,
-  "type": 101,
-  "message": "invalid_access_key",
-  "description": "You have not supplied a valid API Access Key. [Technical Support: support@apilayer.net]"  
+  "success": false,
+  "error": {
+    "code": 104,
+    "info": "Your monthly usage limit has been reached. Please upgrade your Subscription Plan."    
+  }
 }
 ```
 
