@@ -22,7 +22,7 @@ $.ajax({
         // exchange rata data is stored in json.quotes
         alert(json.quotes.USDGBP);
         
-        // base currency is stored in json.source
+        // source currency is stored in json.source
         alert(json.source);
         
         // timestamp can be accessed in json.timestamp
