@@ -34,20 +34,17 @@ Exchange rates for 168 world currencies and precious metals, with data updates r
 * **Historical Rates**:
 Query the API for Historical exchange rates going back all the way to 1999
 
-* **Single-Conversion API**:
+* **Currency Conversion Endpoint**:
 Have the API convert one currency to another on your behalf, using real-time or even historical rates.
 
 * **Time-Frame Queries**:
 Request exchange rates between two specified dates, for timeframes of up to 365 days.
 
-* **Currency-Trend Queries**:
-Request the development trend (in decimal) for one or more currencies between two specified dates.
-
-* **Currency-Trend Queries**:
-Request the development trend (in decimal) for one or more currencies between two specified dates.
+* **Currency-Change Queries**:
+Request change parameters (margin and percentage) for one or more currencies, optionally between two specified dates.
 
 * **Optional Parameters**:
-Request only specific currencies in order to reduce server load, query the API for a different Base Currency, and pretty print your JSON response.
+Request a specific selection of currencies in order to reduce server load, query the API for a different Base Currency, and pretty print your JSON response.
 
 [Sign up for the Free Plan](https://currencylayer.com/product) to get your API Access Key.
 
