@@ -78,7 +78,7 @@ public class LiveResponseDemo{
 			Date timeStampDate = new Date((long)(exchangeRates.getLong("timestamp")*1000)); 
 			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss a");
 			String formattedDate = dateFormat.format(timeStampDate);
-			System.out.println("1 " + exchangeRates.getString("source") + " in GBP : " + exchangeRates.getJSONObject("quotes").getDouble("USDGBP") + " (as of " + formattedDate + ")");
+			System.out.println("1 " + exchangeRates.getString("source") + " in GBP : " + exchangeRates.getJSONObject("quotes").getDouble("USDGBP") + " (Date: " + formattedDate + ")");
 			System.out.println("\n");
 			response.close();
 		} catch (ClientProtocolException e) {
@@ -109,7 +109,7 @@ The **Java Output** will look like this:
 
 ```
 Live Currency Exchange Rates
-1 USD in GBP : 0.66046 (as of 2015-05-02 21:26:15 PM)
+1 USD in GBP : 0.66046 (Date: 2015-05-02 21:26:15 PM)
 ```
 
 ### Performing a Currency Conversion:
