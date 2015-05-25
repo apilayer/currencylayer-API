@@ -63,7 +63,7 @@ public class LiveResponseDemo{
 			Date timeStampDate = new Date((long)(exchangeRates.getLong("timestamp")*1000)); 
 			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss a");
 			String formattedDate = dateFormat.format(timeStampDate);
-			System.out.println("1 " + exchangeRates.getString("base") + " in GBP : " + exchangeRates.getJSONObject("rates").getDouble("GBP") + " (as of " + formattedDate + ")");
+			System.out.println("1 " + exchangeRates.getString("source") + " in GBP : " + exchangeRates.getJSONObject("source").getDouble("USDGBP") + " (Date: " + formattedDate + ")");
 			System.out.println("\n");
 			response.close();
 		} catch (ClientProtocolException e) {
