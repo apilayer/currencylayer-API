@@ -177,9 +177,9 @@ http://apilayer.net/api/live
 
 Please be aware that enabling `format` increases the API Response's file size, which might have a negative on your application's performance.
 
-## API Error Types
+## API Error Codes
 
-All specified API Error Types have been documented in order to - if something goes wrong - help you debug your application in the shortest time possible. The currencylayer API will return a 3-digit error-type, an internal error-message, and a plain text error-description with suggestions for the user.
+All specified API Error Codes have been documented in order to - if something goes wrong - help you debug your application in the shortest time possible. The currencylayer API will return a 3-digit error-type, an internal error-message, and a plain text error-description with suggestions for the user.
 
 Find below an example error - triggered when a user's monthly API Request volume has been reached or exceeded:
 
@@ -195,17 +195,17 @@ Find below an example error - triggered when a user's monthly API Request volume
 
 The following list should help you find the most commonly returned API Errors:
 
-| Type | Message  | Description |
-| :------------ |:---------------:| -----:|
-| 404 | "404_not_found" | User requested a resource which does not exist. |
-| 101 | "missing_access_key" | User did not supply an Access Key. |
-| 101 | "invalid_access_key" | User entered an invalid Access Key. |
-| 103 | "invalid_api_function" | User requested a non-existend API Function. |
-| 104 | "usage_limit_reached" | User has reached or exceeded his Subscription Plan's monthly API Request Allowance. |
-| 105 | "function_access_restricted" | The user's current Subscription Plan does not support the requested API Function. |
-| 106 | "no_rates_available" | The user's query did not return any results. |
+| Type | Description |
+| :------------ | -----:|
+| 404 | User requested a resource which does not exist. |
+| 101 | User did not supply an Access Key. |
+| 101 | User entered an invalid Access Key. |
+| 103 | User requested a non-existend API Function. |
+| 104 | User has reached or exceeded his Subscription Plan's monthly API Request Allowance. |
+| 105 | The user's current Subscription Plan does not support the requested API Function. |
+| 106 | The user's query did not return any results. |
 
-[See all Error Types](https://currencylayer.com/documentation#error_types)
+[See all Error Codes](https://currencylayer.com/documentation#error_codes)
 
 ## HTTP ETags
 
@@ -216,6 +216,6 @@ An Etag ("Entity Tag") is an HTTP response header used to determine whether the 
 
 In our case, `ETags` allow you to check whether or not Exchange Rates have changed since your last API Request. If the rates have not been modified, your API Response will be considerably smaller in size than if they have. Practically, ETags provide a mechanism to cache exchange rate data as long as it is not updated.
 
-[See a quick How-to guide for working with ETags](https://currencylayer.com/documentation#error_types)
+[See a quick How-to guide for working with ETags](https://currencylayer.com/documentation#etags)
 
 
