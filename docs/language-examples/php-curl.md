@@ -1,44 +1,55 @@
 # Language Examples
 
-## PHP (CURL)
+## PHP
 
-### Capture GIFs in PHP:
+### Accessing Real-time Exchange Rates:
 
-Find below a simple PHP function that lets you generate a GIF and define all required and optional parameters:
+Find below an example for how to access the latest exchange rate data via PHP (CURL):
 
 ```php
-function giflayer($url, $args) {
+// set API Endpoint and Access Key (and any options of your choice)
+$endpoint = 'live';
+$access_key = 'YOUR_ACCESS_KEY';
 
-  // set access key
-  $access_key = "YOUR_ACCESS_KEY";
-  
-  // encode target URL
-  $params['url'] = urlencode($url);
+// Initialize CURL:
+$ch = curl_init('http://apilayer.net/api/'.$endpoint.'?access_key='.$access_key.'');
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-  $params += $args;
+// Store the data:
+$json = curl_exec($ch);
+curl_close($ch);
 
-  // create the query string based on the options
-  foreach($params as $key => $value) { $parts[] = "$key=$value"; }
+// Decode JSON response:
+$exchangeRates = json_decode($json, true);
 
-  // compile query string
-  $query = implode("&", $parts);
+// Access the exchange rate values, e.g. GBP:
+echo $exchangeRates['rates']['USDGBP'];
+```
 
-  return "http://apilayer.net/api/capture?access_key=$access_key&$query";
+### Performing a Currency Conversion:
 
-}
+Converting one currency to another in PHP (CURL) is as simple as:
 
-// set required parameters
-$params['start']  = '';    
-$params['end'] = '';      
+```php
+// set API Endpoint, Access Key, required parameters
+$endpoint = 'convert';
+$access_key = 'YOUR_ACCESS_KEY';
 
-// set optional parameters (leave blank if unused)
-$params['duration']  = '';    
-$params['size'] = '';      
-$params['crop']  = '';  
-$params['fps'] = '';      
-$params['trailer'] = '';      
-$params['export'] = '';      
+$from = 'USD';
+$to = 'EUR';
+$amount = 10;
 
-// capture
-$call = giflayer("https://www.youtube.com/watch?v=3W6hZR29l5o", $params);   
+// initialize CURL:
+$ch = curl_init('http://apilayer.net/api/'.$endpoint.'?access_key='.$access_key.'&from='.$from.'&to='.$to.'&amount='.$amount.'');   
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+// get the (still encoded) JSON data:
+$json = curl_exec($ch);
+curl_close($ch);
+
+// Decode JSON response:
+$conversionResult = json_decode($json, true);
+
+// access the conversion result
+echo $conversionResult['result'];
 ```
