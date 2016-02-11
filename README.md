@@ -50,7 +50,7 @@ Find a shortened version of the API's Documentation, along with a full Java Demo
 Interactive example queries, a variety of code examples (including PHP/CURL, jQuery.ajax and Java), integration guides, useful downloads and much more is available at [currencylayer.com/documentation](https://currencylayer.com/documentation).
 
 ## Customer Support
-Need any assistance? [Get in touch with Customer Support](mailto:support@apilayer.net?subject=[currencylayer]).
+Need any assistance? [Get in touch with Customer Support](mailto:support@apilayer.com?subject=[currencylayer]).
 
 ## Legal
 
