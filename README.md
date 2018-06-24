@@ -14,7 +14,7 @@ The online Forex API market is divided into two sections: Inexpensive, but unrel
 
 **Currencylayer** aims to combine the strengths of both into one **superior product** - delivering accurate, reliable and consistent currency exchange rates through a closely monitored API and making it accessible to small-scale businesses and startups - and conveniently low-priced for larger companies.
 
-[Sign up for for free](https://currencylayer.com/product) to get instant API Access.
+[Sign up for free](https://currencylayer.com/product) to get instant API Access.
 
 ## Features & Integration
 
