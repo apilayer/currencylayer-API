@@ -547,6 +547,10 @@
          <td>SÃ£o TomÃ© and PrÃ­ncipe Dobra</td>
       </tr>
       <tr>
+         <td>SUM</td>
+         <td>Sumcoin</td>
+      </tr>
+      <tr>
          <td>SVC</td>
          <td>Salvadoran ColÃ³n</td>
       </tr>
